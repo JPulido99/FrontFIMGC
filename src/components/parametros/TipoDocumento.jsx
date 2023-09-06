@@ -45,7 +45,7 @@ const TipoDocumento = () => {
   //Funcion para eliminar tipoDocumento
   function eliminarTipoDocumento(id) {
     axios
-      .delete(`http://localhost:8080/api/tipoDocumento/${id}`)
+      .delete(`https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/tipoDocumento/${id}`)
       .then((response) => {
         setTiposDocumentos(
           tiposDocumentos.filter((tipoDocumento) => tipoDocumento.id !== id)
@@ -58,7 +58,7 @@ const TipoDocumento = () => {
   //Para poder observar la lista de elementos en la tabla
   function cargarElementos() {
     axios
-      .get("http://localhost:8080/api/tipoDocumento")
+      .get("https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/tipoDocumento")
       .then((response) => {
         setTiposDocumentos(response.data);
       })
@@ -80,7 +80,7 @@ const TipoDocumento = () => {
       //aquí va lo del axios para actualizar los datos
       axios
         .put(
-          `http://localhost:8080/api/tipoDocumento/${tipoDocumentoSeleccionadoId}`,
+          `https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/tipoDocumento/${tipoDocumentoSeleccionadoId}`,
           {
             nombre: nombre,
             sigla: sigla,
@@ -124,7 +124,7 @@ const TipoDocumento = () => {
       setShowAlert(false);
       handleOcultarModalAgregarTD();
       axios
-        .post("http://localhost:8080/api/tipoDocumento", {
+        .post("https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/tipoDocumento", {
           nombre: nombre,
           sigla: sigla,
           descripcion: descripcion,

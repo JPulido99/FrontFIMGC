@@ -47,7 +47,7 @@ const RestablecerCont = () => {
 
     if (passwordsMatch) {
       try {
-        const response = await axios.put(`http://localhost:8080/users/${email}/update-password`, {
+        const response = await axios.put(`https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/users/${email}/update-password`, {
           newPassword: password
         });
 

@@ -26,7 +26,7 @@ const BandejaExpedientes = () => {
 
   const handleBuscarClickMMxNombre = () => {
     axios
-      .get(`http://localhost:8080/api/documento/findMMxNombre?Name=${nombreInteresado}&tipoDoc=${tipoDoc}`)
+      .get(`https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/documento/findMMxNombre?Name=${nombreInteresado}&tipoDoc=${tipoDoc}`)
       .then((response) => {
         if (response.data && response.data.length > 0) {
           console.log(response.data);
@@ -53,7 +53,7 @@ const BandejaExpedientes = () => {
 
   const handleBuscarClickMMxExp = () => {
     axios
-      .get(`http://localhost:8080/api/documento/findMMxNroExpediente?nroExpediente=${numeroExpediente}&tipoDoc=${tipoDoc}`)
+      .get(`https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/documento/findMMxNroExpediente?nroExpediente=${numeroExpediente}&tipoDoc=${tipoDoc}`)
       .then((response) => {
         if (response.data && response.data.length > 0) {
           console.log(response.data);
@@ -71,7 +71,7 @@ const BandejaExpedientes = () => {
 
 
   const handleVerClick = (archivopdfSF) => {
-    const baseUrl = 'http://localhost:8080'; // Cambia esto si es necesario
+    const baseUrl = 'https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev'; // Cambia esto si es necesario
     const pdfUrl = `${baseUrl}/${archivopdfSF}`;
     window.open(pdfUrl, '_blank');
   };

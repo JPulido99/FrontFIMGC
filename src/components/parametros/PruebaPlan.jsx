@@ -31,7 +31,7 @@ const PruebaPlan = () => {
 
   const actualizarTabla = () => {
     axios
-      .get("http://localhost:8080/api/plan")
+      .get("https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/plan")
       .then((response) => {
         setDatos(response.data);
       })
@@ -43,7 +43,7 @@ const PruebaPlan = () => {
   useEffect(() => {
     if (planIdModificar !== "") {
       axios
-        .get(`http://localhost:8080/api/plan/${planIdModificar}`)
+        .get(`https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/plan/${planIdModificar}`)
         .then((response) => {
           const plan = response.data;
           setFormularioModificar({
@@ -80,7 +80,7 @@ const PruebaPlan = () => {
     };
 
     axios
-      .put(`http://localhost:8080/api/plan/${planIdModificar}`, postData)
+      .put(`https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/plan/${planIdModificar}`, postData)
       .then((response) => {
         console.log(response.data);
         handleModalClose();
@@ -125,7 +125,7 @@ const PruebaPlan = () => {
     };
 
     axios
-      .post("http://localhost:8080/api/plan/registrar", postData)
+      .post("https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/plan/registrar", postData)
       .then((response) => {
         // Manejar la respuesta exitosa
         console.log(response.data);
@@ -139,7 +139,7 @@ const PruebaPlan = () => {
 
   const handleEliminar = (id) => {
     axios
-      .delete(`http://localhost:8080/api/plan/${id}`)
+      .delete(`https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/plan/${id}`)
       .then((response) => {
         actualizarTabla();
         // Manejar la respuesta exitosa
@@ -156,7 +156,7 @@ const PruebaPlan = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/api/plan")
+      .get("https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/plan")
       .then((response) => {
         setDatos(response.data);
       })
@@ -167,7 +167,7 @@ const PruebaPlan = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/api/escuela/list")
+      .get("https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/escuela/list")
       .then((response) => {
         setEscuelas(response.data);
       })

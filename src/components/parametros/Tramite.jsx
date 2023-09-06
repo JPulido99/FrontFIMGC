@@ -36,7 +36,7 @@ const Tramite = () => {
   //FUNCION PARA ELIMINAR ELEMENTO
   function eliminarTramite(id) {
     axios
-      .delete(`http://localhost:8080/api/tramite/${id}`)
+      .delete(`https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/tramite/${id}`)
       .then((response) => {
         setTramites(tramites.filter((tramite) => tramite.id !== id));
       })
@@ -50,7 +50,7 @@ const Tramite = () => {
   const [tramites, setTramites] = useState([]);
   function cargarElementos() {
     axios
-      .get("http://localhost:8080/api/tramite")
+      .get("https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/tramite")
       .then((response) => {
         setTramites(response.data);
       })
@@ -68,7 +68,7 @@ const Tramite = () => {
   function modificarTramite() {
     const { id } = tramiteSeleccionado;
     axios
-      .put(`http://localhost:8080/api/tramite/${id}`, {
+      .put(`https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/tramite/${id}`, {
         nombre: nombreModificado,
         descripcion: descripcionModificada,
       })
@@ -106,7 +106,7 @@ const Tramite = () => {
   const agregarTramite = () => {
     
     axios
-      .post("http://localhost:8080/api/tramite", {
+      .post("https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/tramite", {
         nombre: nombre,
         descripcion:descripcion,
       })

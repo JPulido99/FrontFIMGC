@@ -68,7 +68,7 @@ const Modalidad = () => {
       console.log({ nombre, descripcion });
       //aquí va lo del axios, me parece.
       axios
-        .post("http://localhost:8080/api/modalidadIngreso", {
+        .post("https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/modalidadIngreso", {
           nombre: nombre,
           descripcion: descripcion,
         })
@@ -97,7 +97,7 @@ const Modalidad = () => {
       console.log({ nombre, descripcion });
       //aquí va lo del axios, me parece.
       axios
-      .put(`http://localhost:8080/api/modalidadIngreso/${modalidadSeleccionadaId}`, {
+      .put(`https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/modalidadIngreso/${modalidadSeleccionadaId}`, {
         nombre: nombre,
         descripcion:descripcion,
       })
@@ -125,7 +125,7 @@ const Modalidad = () => {
 
   function cargarElementos() {
     axios
-      .get("http://localhost:8080/api/modalidadIngreso/list")
+      .get("https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/modalidadIngreso/list")
       .then((response) => {
         setModalidades(response.data);
         console.log("modalidadesitas:", response.data);
@@ -140,7 +140,7 @@ const Modalidad = () => {
   const [modalidadSeleccionadaId, setModalidadSeleccionadaId] = useState(null);
   function eliminarModalidad(id) {
     axios
-      .delete(`http://localhost:8080/api/modalidadIngreso/${id}`)
+      .delete(`https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/modalidadIngreso/${id}`)
       .then((response) => {
         setModalidades(modalidades.filter((modalidad) => modalidad.id !== id));
       })

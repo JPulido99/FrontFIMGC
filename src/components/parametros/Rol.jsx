@@ -75,7 +75,7 @@ const Rol = () => {
       setShowAlert(false);
       handleOcultarModalAgregarRol();
       axios
-        .post("http://localhost:8080/api/rol", {
+        .post("https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/rol", {
           nombre: nombre,
         })
         .then((response) => {
@@ -92,7 +92,7 @@ const Rol = () => {
   };
   function eliminarRol(id) {
     axios
-      .delete(`http://localhost:8080/api/rol/${id}`)
+      .delete(`https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/rol/${id}`)
       .then((response) => {
         setRoles(roles.filter((rol) => rol.id !== id));
       })
@@ -110,7 +110,7 @@ const Rol = () => {
 
       //aquí va lo del axios para actualizar los datos
       axios
-        .put(`http://localhost:8080/api/rol/${rolSeleccionadoId}`, {
+        .put(`https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/rol/${rolSeleccionadoId}`, {
           nombre: nombre,
         })
         .then((response) => {
@@ -133,7 +133,7 @@ const Rol = () => {
 
   function cargarElementos() {
     axios
-      .get("http://localhost:8080/api/rol")
+      .get("https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/rol")
       .then((response) => {
         setRoles(response.data);
       })

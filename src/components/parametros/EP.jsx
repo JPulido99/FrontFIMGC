@@ -54,7 +54,7 @@ const EP = () => {
       cargarElementos();
       //aquí va lo del axios, me parece.
       axios
-        .post("http://localhost:8080/api/escuela", {
+        .post("https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/escuela", {
           nombre: nombre,
           director: director,
         })
@@ -76,7 +76,7 @@ const EP = () => {
   //MOSTRAR ELEMENTOS
   function cargarElementos() {
     axios
-      .get("http://localhost:8080/api/escuela")
+      .get("https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/escuela")
       .then((response) => {
         setEscuelas(response.data);
       })
@@ -109,7 +109,7 @@ const EP = () => {
 
       //aquí va lo del axios para actualizar los datos
       axios
-        .put(`http://localhost:8080/api/escuela/${escuelaSeleccionadaId}`, {
+        .put(`https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/escuela/${escuelaSeleccionadaId}`, {
           nombre: nombre,
           director: director,
         })
@@ -149,7 +149,7 @@ const EP = () => {
   //FUNCION PARA ELIMINAR
   function eliminarEP(id) {
     axios
-      .delete(`http://localhost:8080/api/escuela/${id}`)
+      .delete(`https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/escuela/${id}`)
       .then((response) => {
         setEscuelas(escuelas.filter((escuela) => escuela.id !== id));
       })

@@ -39,7 +39,7 @@ const BienvenidoInicio = () => {
     setNroDoc(inputNroDoc);
     console.log(inputNroDoc);
     try {
-      const veriResponse = await axios.get(`http://localhost:8080/api/expediente/${inputNroDoc}`);
+      const veriResponse = await axios.get(`https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/expediente/${inputNroDoc}`);
       console.log(veriResponse.data);
       if (veriResponse.data) {
         setAlertaExp({ message: mensajesAlert.existe, type: 'success' });

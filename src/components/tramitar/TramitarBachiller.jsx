@@ -8,7 +8,7 @@ import useTooltips from '../../utilitarios/useTooltips';
 const TramitarBachiller = () => {
   const { user } = useContext(AuthContext);
 
-  const [escuelas, obtenerEscuelas] = useGet("http://localhost:8080/api/escuela/list");
+  const [escuelas, obtenerEscuelas] = useGet("https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/escuela/list");
   useEffect(() => {
     obtenerEscuelas()
   }, [])
@@ -178,7 +178,7 @@ const TramitarBachiller = () => {
       };
 
       const response = await axios.post(
-        `http://localhost:8080/api/expediente/${user.id}/expedienteUserEscuelaBachiller?escuelaId=${selectedEscuelaId}&modalidadIngresoId=${selectedModalidadId}&telefono=${telefono}`,
+        `https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/expediente/${user.id}/expedienteUserEscuelaBachiller?escuelaId=${selectedEscuelaId}&modalidadIngresoId=${selectedModalidadId}&telefono=${telefono}`,
         expedienteData,
         {
           headers: {
@@ -221,7 +221,7 @@ const TramitarBachiller = () => {
   const [selectedModalidadId, setSelectedModalidadId] = useState("");
   useEffect(() => {
     axios
-      .get("http://localhost:8080/api/modalidadIngreso/list")
+      .get("https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/modalidadIngreso/list")
       .then((response) => {
         setModalidades(response.data);
       })
@@ -237,7 +237,7 @@ const TramitarBachiller = () => {
 
     // Promesa para obtener el nombre de la escuela
     const nombreEscuelaPromise = axios
-      .get(`http://localhost:8080/api/escuela/${selectedEscuelaId}`)
+      .get(`https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/escuela/${selectedEscuelaId}`)
       .then((response) => response.data.nombre)
 
       .catch((error) => {
@@ -247,7 +247,7 @@ const TramitarBachiller = () => {
 
     // Promesa para obtener la lista de planes de estudio
     const planesDeEstudioPromise = axios
-      .get(`http://localhost:8080/api/escuela/${selectedEscuelaId}/planes`)
+      .get(`https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/escuela/${selectedEscuelaId}/planes`)
       .then((response) => response.data)
       .catch((error) => {
         console.error(error);
@@ -267,7 +267,7 @@ const TramitarBachiller = () => {
   const obtenerNombreModalidad = (selectedModalidadId) => {
     // Realiza una consulta a tu API para obtener el nombre de la escuela por su ID
     return axios
-      .get(`http://localhost:8080/api/modalidadIngreso/${selectedModalidadId}`)
+      .get(`https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/modalidadIngreso/${selectedModalidadId}`)
       .then((response) => {
         return response.data.nombre;
       })

@@ -24,7 +24,7 @@ const AdminParametros = () => {
 
   function cargarElementos() {
     axios
-      .get("http://localhost:8080/api/escuela")
+      .get("https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/escuela")
       .then((response) => {
         setEscuelas(response.data);
       })
@@ -35,7 +35,7 @@ const AdminParametros = () => {
 
   function eliminarEscuela(id) {
     axios
-      .delete(`http://localhost:8080/api/escuela/${id}`)
+      .delete(`https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/escuela/${id}`)
       .then((response) => {
         console.log(response.data);
         setEscuelas(escuelas.filter((escuela) => escuela.id !== id));
