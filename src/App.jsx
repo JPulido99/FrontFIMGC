@@ -39,7 +39,7 @@ function App() {
           <Route path="*" element={<Private> <BienvenidoInicio /> </Private>} />
           {/* <Route path='/DetailProduct/:id' element={<DetailProduct />} /> */}
 
-          <Route path='/correo-verificado' element={<VerificadoExitoso />} />
+           {/*<Route path='/correo-verificado' element={<VerificadoExitoso />} />*/}
           <Route path='/enviar-constancia' element={<Private>  <EnviarConstTurnitin /></Private>} />
           <Route path='/restablecer/idUsuario' element={<RestablecerCont />} />
           <Route path='/token-expirado' element={<TokenExpirado />} />
