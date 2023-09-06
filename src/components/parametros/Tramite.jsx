@@ -36,7 +36,7 @@ const Tramite = () => {
   //FUNCION PARA ELIMINAR ELEMENTO
   function eliminarTramite(id) {
     axios
-      .delete(`https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/tramite/${id}`)
+      .delete(`https://backfimgc.azurewebsites.net/api/tramite/${id}`)
       .then((response) => {
         setTramites(tramites.filter((tramite) => tramite.id !== id));
       })
@@ -50,7 +50,7 @@ const Tramite = () => {
   const [tramites, setTramites] = useState([]);
   function cargarElementos() {
     axios
-      .get("https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/tramite")
+      .get("https://backfimgc.azurewebsites.net/api/tramite")
       .then((response) => {
         setTramites(response.data);
       })
@@ -68,7 +68,7 @@ const Tramite = () => {
   function modificarTramite() {
     const { id } = tramiteSeleccionado;
     axios
-      .put(`https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/tramite/${id}`, {
+      .put(`https://backfimgc.azurewebsites.net/api/tramite/${id}`, {
         nombre: nombreModificado,
         descripcion: descripcionModificada,
       })
@@ -106,7 +106,7 @@ const Tramite = () => {
   const agregarTramite = () => {
     
     axios
-      .post("https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/tramite", {
+      .post("https://backfimgc.azurewebsites.net/api/tramite", {
         nombre: nombre,
         descripcion:descripcion,
       })

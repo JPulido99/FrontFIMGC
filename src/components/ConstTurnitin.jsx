@@ -36,13 +36,13 @@ const ConstTurnitin = () => {
     setNroDoc(inputNroDoc);
     console.log(inputNroDoc);
     try {
-      const veriResponse = await axios.get(`https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/expediente/${inputNroDoc}`);
+      const veriResponse = await axios.get(`https://backfimgc.azurewebsites.net/api/expediente/${inputNroDoc}`);
       console.log(veriResponse.data)
 
       if (veriResponse.data) {
         setAlertaExp({ message: mensajesAlert.existe, type: 'success' });
 
-        const emailiResponse = await axios.get(`https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/expediente/emaili/${inputNroDoc}`);
+        const emailiResponse = await axios.get(`https://backfimgc.azurewebsites.net/api/expediente/emaili/${inputNroDoc}`);
         console.log(emailiResponse.data);
         setInteresadoEmail(emailiResponse.data);
 
@@ -105,7 +105,7 @@ const ConstTurnitin = () => {
         "resultado": documentoConstancia.resultado,
       };
       console.log(dataToSendDoc);
-      const documentoResponse = await axios.post(`https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/documento/${nroDoc}/actualizarConstancia`, dataToSendDoc);
+      const documentoResponse = await axios.post(`https://backfimgc.azurewebsites.net/api/documento/${nroDoc}/actualizarConstancia`, dataToSendDoc);
       //const rutaArchivo = uploadResponse.data;
       console.log(documentoResponse);
 
@@ -114,7 +114,7 @@ const ConstTurnitin = () => {
         formData.append('file', archivoSeleccionado); // Añade el archivo seleccionado al FormData
         formData.append('nroExpediente', nroDoc);
         // Envía el archivo al backend para guardarlo
-        const uploadResponse = await axios.post('https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/expediente/upload', formData);
+        const uploadResponse = await axios.post('https://backfimgc.azurewebsites.net/api/expediente/upload', formData);
         const rutaArchivo = uploadResponse.data;
 
         if (uploadResponse.data) {
@@ -130,7 +130,7 @@ const ConstTurnitin = () => {
             "body": "Holiwi :3",
             "pdfFilePath": rutaArchivo
           };
-          const sendResponse = await axios.post('https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/sendEmail', dataToSendEmail);
+          const sendResponse = await axios.post('https://backfimgc.azurewebsites.net/sendEmail', dataToSendEmail);
           console.log('Correo enviado:', sendResponse.data);
           setEnvioExitoso(true);          
           setShouldReload(true);

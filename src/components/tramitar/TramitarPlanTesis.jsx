@@ -8,7 +8,7 @@ import useTooltips from '../../utilitarios/useTooltips';
 const TramitarPlanTesis = () => {
   const { user } = useContext(AuthContext);
 
-  const [escuelas, obtenerEscuelas] = useGet("https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/escuela/list");
+  const [escuelas, obtenerEscuelas] = useGet("https://backfimgc.azurewebsites.net/api/escuela/list");
   useEffect(() => {
     obtenerEscuelas()
   }, [])
@@ -33,7 +33,7 @@ const TramitarPlanTesis = () => {
 
   const handleBuscarClick = () => {
     axios
-      .get(`https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/users/buscarDocentes?firstName=${nombreAsesor}`)
+      .get(`https://backfimgc.azurewebsites.net/users/buscarDocentes?firstName=${nombreAsesor}`)
       .then((response) => {
         if (response.data && response.data.length > 0) {
           setDocentes(response.data);
@@ -126,7 +126,7 @@ const TramitarPlanTesis = () => {
   const obtenerNombreEscuela = (selectedEscuelaId) => {
     // Realiza una consulta a tu API para obtener el nombre de la escuela por su ID
     return axios
-      .get(`https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/escuela/${selectedEscuelaId}`)
+      .get(`https://backfimgc.azurewebsites.net/api/escuela/${selectedEscuelaId}`)
       .then((response) => {
         return response.data.nombre;
       })
@@ -183,7 +183,7 @@ const TramitarPlanTesis = () => {
       };
 
       const response = await axios.post(
-        `https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/expediente/${user.id}/expedienteUserEscuela?asesorId=${asesorId}&escuelaId=${selectedEscuelaId}&telefono=${telefono}`,
+        `https://backfimgc.azurewebsites.net/api/expediente/${user.id}/expedienteUserEscuela?asesorId=${asesorId}&escuelaId=${selectedEscuelaId}&telefono=${telefono}`,
         expedienteData,
         {
           headers: {

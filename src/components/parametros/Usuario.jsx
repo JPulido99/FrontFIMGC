@@ -10,7 +10,7 @@ import Modal from "react-bootstrap/Modal";
 import Alert from "react-bootstrap/Alert";
 
 const PlanEstudios = () => {
-  const API_URL = "https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api";
+  const API_URL = "https://backfimgc.azurewebsites.net/api";
 
   //Poner el url del controlador del back aquí
 
@@ -135,7 +135,7 @@ const PlanEstudios = () => {
 
   useEffect(() => {
     axios
-      .get("https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/plan")
+      .get("https://backfimgc.azurewebsites.net/api/plan")
       .then((response) => {
         setDatos(response.data);
       })
@@ -145,7 +145,7 @@ const PlanEstudios = () => {
   }, []);
   useEffect(() => {
     axios
-      .get("https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/escuela/listEscuelas")
+      .get("https://backfimgc.azurewebsites.net/api/escuela/listEscuelas")
       .then((response) => {
         setEscuelas(response.data);
       })
@@ -156,7 +156,7 @@ const PlanEstudios = () => {
   //ACTUALIZAR TABLA
   const actualizarTabla = () => {
     axios
-      .get("https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/plan")
+      .get("https://backfimgc.azurewebsites.net/api/plan")
       .then((response) => {
         setDatos(response.data);
       })
@@ -167,7 +167,7 @@ const PlanEstudios = () => {
   //ELIMINAR REGISTRO
   const handleEliminar = (id) => {
     axios
-      .delete(`https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/plan/${id}`)
+      .delete(`https://backfimgc.azurewebsites.net/api/plan/${id}`)
       .then((response) => {
         actualizarTabla();
         // Manejar la respuesta exitosa
@@ -219,7 +219,7 @@ const PlanEstudios = () => {
       };
 
       axios
-        .post("https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/plan/registrar", postData)
+        .post("https://backfimgc.azurewebsites.net/api/plan/registrar", postData)
         .then((response) => {
           // Manejar la respuesta exitosa
           console.log(response.data);

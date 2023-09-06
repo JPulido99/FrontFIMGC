@@ -24,7 +24,7 @@ const AdminParametros = () => {
 
   function cargarElementos() {
     axios
-      .get("https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/escuela")
+      .get("https://backfimgc.azurewebsites.net/api/escuela")
       .then((response) => {
         setEscuelas(response.data);
       })
@@ -35,7 +35,7 @@ const AdminParametros = () => {
 
   function eliminarEscuela(id) {
     axios
-      .delete(`https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/escuela/${id}`)
+      .delete(`https://backfimgc.azurewebsites.net/api/escuela/${id}`)
       .then((response) => {
         console.log(response.data);
         setEscuelas(escuelas.filter((escuela) => escuela.id !== id));

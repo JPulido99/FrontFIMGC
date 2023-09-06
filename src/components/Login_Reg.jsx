@@ -45,7 +45,7 @@ const Login_Reg = () => {
 
   useEffect(() => {
     axios
-      .get("https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/api/rol/roles")
+      .get("https://backfimgc.azurewebsites.net/api/rol/roles")
       .then((response) => {
         const roles = response.data;
         setRoles(roles);
@@ -61,7 +61,7 @@ const Login_Reg = () => {
     };
 
     axios
-      .post("https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/login", user)
+      .post("https://backfimgc.azurewebsites.net/login", user)
       .then((response) => {
         const { token, nombre, rol } = response.data;
         console.log(user);
@@ -108,7 +108,7 @@ const Login_Reg = () => {
     };
 
     axios
-      .post("https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/register", user)
+      .post("https://backfimgc.azurewebsites.net/register", user)
       .then((response) => {
         handleClose();
         setFirstName("");
@@ -166,7 +166,7 @@ const Login_Reg = () => {
   const [resetEmail, setResetEmail] = useState("");
   const handleEnviarCorreoRestablecer = async () => {
     try {
-      const response = await axios.post("https://8080-cs-106689005237-default.cs-us-east1-pkhd.cloudshell.dev/enviar-correo", {
+      const response = await axios.post("https://backfimgc.azurewebsites.net/enviar-correo", {
         destinatario: resetEmail,
       });
 
