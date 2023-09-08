@@ -36,7 +36,7 @@ const Tramite = () => {
   //FUNCION PARA ELIMINAR ELEMENTO
   function eliminarTramite(id) {
     axios
-      .delete(`https://backfimgc.azurewebsites.net/api/tramite/${id}`)
+      .delete(`https://fimgc-back.rj.r.appspot.com/api/tramite/${id}`)
       .then((response) => {
         setTramites(tramites.filter((tramite) => tramite.id !== id));
       })
@@ -50,7 +50,7 @@ const Tramite = () => {
   const [tramites, setTramites] = useState([]);
   function cargarElementos() {
     axios
-      .get("https://backfimgc.azurewebsites.net/api/tramite")
+      .get("https://fimgc-back.rj.r.appspot.com/api/tramite")
       .then((response) => {
         setTramites(response.data);
       })
@@ -68,7 +68,7 @@ const Tramite = () => {
   function modificarTramite() {
     const { id } = tramiteSeleccionado;
     axios
-      .put(`https://backfimgc.azurewebsites.net/api/tramite/${id}`, {
+      .put(`https://fimgc-back.rj.r.appspot.com/api/tramite/${id}`, {
         nombre: nombreModificado,
         descripcion: descripcionModificada,
       })
@@ -106,7 +106,7 @@ const Tramite = () => {
   const agregarTramite = () => {
     
     axios
-      .post("https://backfimgc.azurewebsites.net/api/tramite", {
+      .post("https://fimgc-back.rj.r.appspot.com/api/tramite", {
         nombre: nombre,
         descripcion:descripcion,
       })

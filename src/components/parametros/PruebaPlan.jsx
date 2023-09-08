@@ -31,7 +31,7 @@ const PruebaPlan = () => {
 
   const actualizarTabla = () => {
     axios
-      .get("https://backfimgc.azurewebsites.net/api/plan")
+      .get("https://fimgc-back.rj.r.appspot.com/api/plan")
       .then((response) => {
         setDatos(response.data);
       })
@@ -43,7 +43,7 @@ const PruebaPlan = () => {
   useEffect(() => {
     if (planIdModificar !== "") {
       axios
-        .get(`https://backfimgc.azurewebsites.net/api/plan/${planIdModificar}`)
+        .get(`https://fimgc-back.rj.r.appspot.com/api/plan/${planIdModificar}`)
         .then((response) => {
           const plan = response.data;
           setFormularioModificar({
@@ -80,7 +80,7 @@ const PruebaPlan = () => {
     };
 
     axios
-      .put(`https://backfimgc.azurewebsites.net/api/plan/${planIdModificar}`, postData)
+      .put(`https://fimgc-back.rj.r.appspot.com/api/plan/${planIdModificar}`, postData)
       .then((response) => {
         console.log(response.data);
         handleModalClose();
@@ -125,7 +125,7 @@ const PruebaPlan = () => {
     };
 
     axios
-      .post("https://backfimgc.azurewebsites.net/api/plan/registrar", postData)
+      .post("https://fimgc-back.rj.r.appspot.com/api/plan/registrar", postData)
       .then((response) => {
         // Manejar la respuesta exitosa
         console.log(response.data);
@@ -139,7 +139,7 @@ const PruebaPlan = () => {
 
   const handleEliminar = (id) => {
     axios
-      .delete(`https://backfimgc.azurewebsites.net/api/plan/${id}`)
+      .delete(`https://fimgc-back.rj.r.appspot.com/api/plan/${id}`)
       .then((response) => {
         actualizarTabla();
         // Manejar la respuesta exitosa
@@ -156,7 +156,7 @@ const PruebaPlan = () => {
 
   useEffect(() => {
     axios
-      .get("https://backfimgc.azurewebsites.net/api/plan")
+      .get("https://fimgc-back.rj.r.appspot.com/api/plan")
       .then((response) => {
         setDatos(response.data);
       })
@@ -167,7 +167,7 @@ const PruebaPlan = () => {
 
   useEffect(() => {
     axios
-      .get("https://backfimgc.azurewebsites.net/api/escuela/list")
+      .get("https://fimgc-back.rj.r.appspot.com/api/escuela/list")
       .then((response) => {
         setEscuelas(response.data);
       })

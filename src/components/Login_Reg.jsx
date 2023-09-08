@@ -45,7 +45,7 @@ const Login_Reg = () => {
 
   useEffect(() => {
     axios
-      .get("https://backfimgc.azurewebsites.net/api/rol/roles")
+      .get("https://fimgc-back.rj.r.appspot.com/api/rol/roles")
       .then((response) => {
         const roles = response.data;
         setRoles(roles);
@@ -61,7 +61,7 @@ const Login_Reg = () => {
     };
 
     axios
-      .post("https://backfimgc.azurewebsites.net/login", user)
+      .post("https://fimgc-back.rj.r.appspot.com/login", user)
       .then((response) => {
         const { token, nombre, rol } = response.data;
         console.log(user);
@@ -108,7 +108,7 @@ const Login_Reg = () => {
     };
 
     axios
-      .post("https://backfimgc.azurewebsites.net/register", user)
+      .post("https://fimgc-back.rj.r.appspot.com/register", user)
       .then((response) => {
         handleClose();
         setFirstName("");
@@ -166,7 +166,7 @@ const Login_Reg = () => {
   const [resetEmail, setResetEmail] = useState("");
   const handleEnviarCorreoRestablecer = async () => {
     try {
-      const response = await axios.post("https://backfimgc.azurewebsites.net/enviar-correo", {
+      const response = await axios.post("https://fimgc-back.rj.r.appspot.com/enviar-correo", {
         destinatario: resetEmail,
       });
 
@@ -370,7 +370,7 @@ const Login_Reg = () => {
                 <Form.Control.Feedback type="invalid">
                   {selectedRole === "Interesado"
                     ? "Formato incorrecto. Utilice el formato primerNombre.primerApellido.numero@unsch.edu.pe"
-                    : "Formato incorrecto. Utilice el formato nombre@gmail.com"}
+                    : "Formato incorrecto. Utilice el formato primerNombre.primerApellido@unsch.edu.pe"}
                 </Form.Control.Feedback>
               </Col>
             </Form.Group>
