@@ -152,7 +152,7 @@ const Login_Reg = () => {
         selectedRole
       );
     } else {
-      const usernameRegex = /^[a-zA-Z]+@gmail\.com$/;
+      const usernameRegex = /^[a-zA-Z]+\.[a-zA-Z]+@unsch\.edu\.pe$/;
       return (
         usernameRegex.test(username) &&
         //username &&
